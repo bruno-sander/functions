@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Loan Calculator</title>
+<script>
+function doPayment() {
+var principal = parseFloat(document.getElementById('principal').value);
+annualRate = parseFloat(document.getElementById('annualRate').value);
+years = parseFloat(document.getElementById('numYears').value);
+periodsPerYear = parseFloat(document.getElementById('payPerYear').value);
+computePayment(principal, annualRate, years, periodsPerYear);
+document.getElementById('firstDiv').innerHTML = p;
+}
+function doBalance() {
+var numPayments = parseFloat(document.getElementById('numPayments').value);
+computeBalance(principal, annualRate, years, periodsPerYear, numPayments);
+document.getElementById('secondDiv').innerHTML = b;
+
+}
+function computePayment(principal, annualRate, years, periodsPerYear) {
+var r = annualRate/periodsPerYear;
+n = years * periodsPerYear;
+p = (principal * r)/(1-Math.pow((1 + r),-n));
+return p;
+
+}
+function computeBalance(principal, annualRate, years, periodsPerYear, numberOfPaymentPaidToDate) {
+var b = principal * Math.pow((1 + r),numberOfPaymentPaidToDate)-(p*(Math.pow((1+r),numberOfPaymentPaidToDate)-1)/r)
+return b;
+}
+</script>
+</head>
+<body>
+Amount borrowed: <input type="number" id = 'principal' style="width: 80px;"> <br>
+Annual  Rate: <input type="number" id='annualRate' style="width: 80px;"><br>
+Years: <input type="number" id = 'numYears' style="width: 80px;"><br>
+Payments per year: <input type="number" id = 'payPerYear' style="width: 80px;"><br>
+<button type="button" onclick = 'doPayment()'>Compute payment</button><br><br>
+<div id = 'firstDiv'></div><br>
+Number of payments paid to due date:<input type="number" id = 'numPayments' style="width: 80px;"><br>
+<button type="button" onclick = 'doBalance()'>Compute Payoff</button>
+<div id = 'secondDiv'></div>
+
+</body>
+</html>
