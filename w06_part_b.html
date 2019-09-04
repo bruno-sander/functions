@@ -1,45 +1,24 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en-us">
 <head>
-<meta charset="utf-8">
-<title>Future Value Calculator</title>
-</head>
-<body>
-<h3>Future Value Calculator</h3>
-<form>
-Present Value (PV)
-<input type="text" id="pv" style="width: 80px;">
-<br>
-Annual rate (.08)
-<input type="text" id="rate" style="width: 80px;">
-<br>
-Number of years
-<input type="text" id="years" style="width: 80px;">
-<br>
-Number of periods
-<input type="text" id="periods" style="width: 80px;">
-<br><br>
-<button type="button" onclick="doFV()">Future Value HERE</button>
-</form>
+<title>Adding Value in Arrays</title>
 
 <script>
-
-function doFV() {
-var pv = parseFloat(document.getElementById("pv").value),
-rate = parseFloat(document.getElementById("rate").value),
-years = parseFloat(document.getElementById("years").value),
-periods = parseFloat(document.getElementById("periods").value);
-var mathIt = FutureValue(pv, rate, years, periods);
-document.getElementById('output').innerHTML = "$" + mathIt;
-}
-
-function FutureValue(principal, annualRate, years, periodsPerYear) {
-return (principal*Math.pow((1+(annualRate/periodsPerYear)),periodsPerYear*years)).toFixed(2);
-}
+    var list=[5, 6, 10, -2, 6];
+    function addEnds(){
+    var output=list[0] + list[list.length-1];
+    document.getElementById('output').innerHTML=output;
+    }
 
 </script>
-<div id="output"></div>
+
+</head>
+<body>
+  
+    <h1>Add Elements</h1>
+    <button type="button" onclick="addEnds()">Add Elements</button>
+    <br><br>
+    <div id="output"></div>
 
 </body>
-
 </html>
