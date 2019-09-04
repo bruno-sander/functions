@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<title>Get Number in Middle</title>
+</head>
+
+<body>
+<form>
+<button type="button" onclick="doIt()">Click to Get Middle Number</button>
+</form>
+
+<script>
+
+function doIt() {
+var list = [12, 4, 8, 15, 17, 5, 20, 11],
+result = getMiddle(list);
+document.getElementById("output").innerHTML = result;
+}
+
+function getMiddle(list) {
+
+if ((list.length % 2) == 0) {
+var z = (list.length / 2) - 1,
+q = list.length / 2,
+r = (list[z] + list[q]) / 2;
+return r;
+} else {
+var t = Math.floor(list.length / 2);
+return list[t].toString();
+}
+}
+
+</script>
+<br>
+<div id="output"></div>
+
+</body>
+</html>
